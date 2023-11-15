@@ -5,6 +5,7 @@ import { AuthUserController } from "./controllers/AuthUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
 
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
+import { ListCategoryController } from "./controllers/category/ListCategoryController";
 
 import { isAuth } from "./middlewares/isAuth";
 
@@ -17,5 +18,6 @@ router.get("/userinfo", isAuth, new DetailUserController().handle);
 
 // -- ROTAS CATEGORIES --
 router.post("/categories", isAuth, new CreateCategoryController().handle);
+router.get("/categories", isAuth, new ListCategoryController().handle);
 
 export { router };
