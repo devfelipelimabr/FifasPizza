@@ -2,7 +2,7 @@ import { Router } from "express";
 import multer from "multer";
 
 import { CreateUserController } from "./controllers/user/CreateUserController";
-import { AuthUserController } from "./controllers/AuthUserController";
+import { AuthUserController } from "./controllers/user/AuthUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
 
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
@@ -29,7 +29,12 @@ router.post("/categories", isAuth, new CreateCategoryController().handle);
 router.get("/categories", isAuth, new ListCategoryController().handle);
 
 // -- ROUTS PRODUCTS --
-router.post("/products", isAuth, upload.single('file'), new CreateProductController().handle);
+router.post(
+  "/products",
+  isAuth,
+  upload.single("file"),
+  new CreateProductController().handle
+);
 router.get("/category/products", isAuth, new ListByCategoryController().handle);
 
 export { router };
