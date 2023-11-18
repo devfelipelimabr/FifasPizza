@@ -7,6 +7,9 @@ class ListOrdersService {
         draft: false,
         status: false,
       },
+      orderBy: {
+        created_at: "desc",
+      },
     });
     return order;
   }
