@@ -16,6 +16,7 @@ import { RemoveOrderController } from "./controllers/order/RemoveOrderController
 import { SendOrderController } from "./controllers/order/SendOrderController";
 import { ListOrdersController } from "./controllers/order/ListOrdersController";
 import { DetailOrderController } from "./controllers/order/DetailOrderController";
+import { EndOrderController } from "./controllers/order/EndOrderController";
 
 import { AddItemController } from "./controllers/order/AddItemController";
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
@@ -52,6 +53,7 @@ router.delete("/orders", isAuth, new RemoveOrderController().handle);
 router.patch("/orders/draft", isAuth, new SendOrderController().handle);
 router.get("/orders", isAuth, new ListOrdersController().handle);
 router.get("/orders/datail", isAuth, new DetailOrderController().handle);
+router.patch("/orders/status", isAuth, new EndOrderController().handle);
 
 router.post("/orders/itens", isAuth, new AddItemController().handle);
 router.delete("/orders/itens", isAuth, new RemoveItemController().handle);
